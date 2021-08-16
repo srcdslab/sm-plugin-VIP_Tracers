@@ -1,0 +1,28 @@
+"Phrases"
+{
+	"no_access"
+	{
+		"en"	"{blue}[VIP Tracers] {yellow}Tracers only for {orchid}VIP{yellow}. Buy on {blue}www.nide.gg"
+		"ru"	"{blue}[VIP Tracers] {yellow}Следы от пуль только для {orchid}VIP{yellow}. Купи на {blue}www.nide.gg"
+	}
+	"Cookie Menu"
+	{
+		"en"    "VIP Tracers"
+	}
+	"Cookie Menu Title"
+	{
+		"en"    "VIP Tracers Settings"
+	}
+	"Visible"
+	{
+		"en"    "Visible"
+	}
+	"Hidden"
+	{
+		"en"    "Hidden"
+	}
+	"Tracers"
+	{
+		"en"    "Tracers"
+	}
+}
