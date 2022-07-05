@@ -168,6 +168,7 @@ public int MenuHandler_SettingsMenu(Menu menu, MenuAction action, int client, in
 			delete menu;
 		}
 	}
+	return 0;
 }
 
 public OnMapStart()
@@ -365,6 +366,7 @@ public Action Timer_LoadDelay(Handle hTimer, any userID)
 	int iClient = GetClientOfUserId(userID);
 	if (iClient)
 		g_bHasAccess[iClient] = true;
+	return Plugin_Continue;
 }
 
 public OnClientCookiesCached(iClient)
