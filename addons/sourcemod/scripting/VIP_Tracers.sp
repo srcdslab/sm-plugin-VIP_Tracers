@@ -10,7 +10,7 @@ public Plugin:myinfo =
 	name = "[VIP] Tracers",
 	author = "R1KO & inGame & maxime1907",
 	description = "Display the trajectory of bullets when firing with a weapon",
-	version = "1.1",
+	version = "1.1.0",
 	url = ""
 };
 
