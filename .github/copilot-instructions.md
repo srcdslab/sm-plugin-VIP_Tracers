@@ -8,14 +8,14 @@ This repository contains a SourceMod plugin that provides VIP players with visua
 - **Main Plugin**: `addons/sourcemod/scripting/VIP_Tracers.sp` - Core plugin functionality
 - **Configuration**: `addons/sourcemod/configs/tracers.cfg` - Plugin settings and color definitions
 - **Translations**: `addons/sourcemod/translations/vip_tracers.phrases.txt` - Multi-language support
-- **Build System**: `sourceknight.yaml` - SourceKnight build configuration
+- **Build System**: `.github/workflows/ci.yml` - Native GitHub Actions build configuration
 - **CI/CD**: `.github/workflows/ci.yml` - Automated building and releases
 
 ## Technical Environment
 
 - **Language**: SourcePawn (SourceMod scripting language)
 - **Platform**: SourceMod 1.11.0+ (supports up to latest 1.12+)
-- **Compiler**: SourcePawn compiler (spcomp) via SourceKnight
+- **Compiler**: SourcePawn compiler (spcomp) via GitHub Actions (rumblefrog/setup-sp)
 - **Dependencies**:
   - SourceMod core
   - VIP Core plugin (for VIP system integration)
@@ -52,18 +52,14 @@ This repository contains a SourceMod plugin that provides VIP players with visua
 ## Development Workflow
 
 ### Build System
-The project uses SourceKnight for building:
-
-```bash
-# Build the plugin (requires SourceKnight installed)
-sourceknight build
-```
+The project builds via native GitHub Actions (`.github/workflows/ci.yml`), no local build tool required:
 
 The build process:
-1. Downloads dependencies (SourceMod, MultiColors, VIP Core)
-2. Compiles the SourcePawn script
-3. Packages the plugin with configs and translations
-4. Outputs to `.sourceknight/package/`
+1. Sets up the SourcePawn compiler via `rumblefrog/setup-sp` (SourceMod 1.12.x)
+2. Clones dependencies (MultiColors, VIP Core) and copies their includes
+3. Compiles the SourcePawn script with `spcomp`
+4. Packages the plugin with configs and translations
+5. Uploads the build artifact and, on master/main, publishes a `latest` release
 
 ### File Structure
 ```
@@ -77,7 +73,7 @@ addons/sourcemod/
 ```
 
 ### Dependencies Management
-Dependencies are automatically handled by SourceKnight:
+Dependencies are automatically handled by the CI workflow:
 - SourceMod base files
 - VIP Core includes (`vip_core.inc`)
 - MultiColors includes (`multicolors.inc`)
@@ -171,7 +167,7 @@ public void VIP_OnVIPClientLoaded(int client)
 
 ### Common Issues
 - **Tracers not visible**: Check VIP access and visibility settings
-- **Build failures**: Verify SourceKnight dependencies are available
+- **Build failures**: Verify the CI workflow's dependency clone steps succeeded
 - **Color issues**: Validate color format in config file (R G B A)
 - **Performance problems**: Profile tracer rendering frequency
 
