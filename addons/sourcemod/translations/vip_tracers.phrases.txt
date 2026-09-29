@@ -8,21 +8,26 @@
 	"Cookie Menu"
 	{
 		"en"    "VIP Tracers"
+		"ru"    "Следы от пуль (VIP)"
 	}
 	"Cookie Menu Title"
 	{
 		"en"    "VIP Tracers Settings"
+		"ru"    "Настройки VIP следов от пуль"
 	}
 	"Visible"
 	{
 		"en"    "Visible"
+		"ru"    "Видимые"
 	}
 	"Hidden"
 	{
 		"en"    "Hidden"
+		"ru"    "Скрытые"
 	}
 	"Tracers"
 	{
 		"en"    "Tracers"
+		"ru"    "Следы от пуль"
 	}
 }
