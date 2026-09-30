@@ -41,7 +41,7 @@ Cookie g_hCookie[3];
 public void OnPluginStart()
 {
 	LoadTranslations("vip_tracers.phrases");
-
+	
 	HookEvent("bullet_impact",	Event_BulletImpact);
 
 	g_hCookie[0] = new Cookie("Tracers_Enable", "Tracers_Enable", CookieAccess_Private);
@@ -49,7 +49,7 @@ public void OnPluginStart()
 	g_hCookie[2] = new Cookie("Tracers_Amplitude", "Tracers_Amplitude", CookieAccess_Private);
 
 	g_hCookie_VIPTracers_Visible  = new Cookie("Tracers_Visible",  "Tracers_Visible", CookieAccess_Private);
-
+	
 	g_hMainMenu = new Menu(Handler_MainMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem);
 	g_hMainMenu.ExitBackButton = false;
 	g_hMainMenu.ExitButton = true;
@@ -59,13 +59,13 @@ public void OnPluginStart()
 	g_hMainMenu.AddItem("", "Amplitude", ITEMDRAW_DISABLED);
 	g_hMainMenu.AddItem("", "a+");
 	g_hMainMenu.AddItem("", "a-");
-
+	
 
 	g_hColorsMenu = new Menu(Handler_ColorsMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem);
 	g_hColorsMenu.ExitBackButton = true;
 	g_hColorsMenu.ExitButton = true;
 	g_hColorsMenu.SetTitle("Tracers colors:\n \n");
-
+	
 	RegConsoleCmd("tracers", Command_Tracers);
 	RegConsoleCmd("tracer", Command_Tracers);
 	RegConsoleCmd("tracersoff", Command_TracersVisibility);
@@ -195,7 +195,7 @@ public void OnMapStart()
 	hKeyValues.Rewind();
 
 	sBuffer[0] = 0;
-
+	
 	if(hKeyValues.JumpToKey("Colors", true) && hKeyValues.GotoFirstSubKey(false))
 	{
 		char sColor[64];
@@ -212,7 +212,7 @@ public void OnMapStart()
 	{
 		g_hColorsMenu.AddItem("", "No Colors", ITEMDRAW_DISABLED);
 	}
-
+	
 	delete hKeyValues;
 }
 
@@ -285,7 +285,7 @@ public int Handler_MainMenu(Menu hMenu, MenuAction action, int iClient, int Item
 					FormatEx(sBuffer, sizeof(sBuffer), "Amplitude -0.1");
 				}
 			}
-
+			
 			return RedrawMenuItem(sBuffer);
 		}
 	}
@@ -308,13 +308,13 @@ public int Handler_ColorsMenu(Menu hMenu, MenuAction action, int iClient, int It
 		{
 			char sInfo[64], sColorName[128];
 			hMenu.GetItem(Item, sInfo, sizeof(sInfo), _, sColorName, sizeof(sColorName));
-
+			
 			UTIL_LoadColor(iClient, sInfo);
 			g_hCookie[1].Set(iClient, sInfo);
 			g_iClientItem[iClient] = Item;
 
 			PrintToChat(iClient, "\x0799CCFF[VIP Tracers] \x07FFFF00You changed your tracers color to \x04%s", sColorName);
-
+			
 			g_hColorsMenu.DisplayAt(iClient, hMenu.Selection, MENU_TIME_FOREVER);
 		}
 		case MenuAction_DisplayItem:
@@ -323,7 +323,7 @@ public int Handler_ColorsMenu(Menu hMenu, MenuAction action, int iClient, int It
 			{
 				char sInfo[64], sColorName[128];
 				hMenu.GetItem(Item, sInfo, sizeof(sInfo), _, sColorName, sizeof(sColorName));
-
+				
 				Format(sColorName, sizeof(sColorName), "%s [X]", sColorName);
 
 				return RedrawMenuItem(sColorName);
@@ -429,7 +429,7 @@ void UTIL_LoadColor(int iClient, const char[] sInfo)
 		}
 		return;
 	}
-
+	
 	UTIL_GetRGBAFromString(sInfo, g_iClientColor[iClient]);
 }
 
@@ -469,15 +469,15 @@ public void Event_BulletImpact(Event hEvent, const char[] sEvName, bool dontBroa
 		float fClientOrigin[3], fEndPos[3], fStartPos[3], fPercentage;
 		int i, iTotalClients, iTeam, iColor[4];
 		GetClientEyePosition(iClient, fClientOrigin);
-
+		
 		fEndPos[0] = hEvent.GetFloat("x");
 		fEndPos[1] = hEvent.GetFloat("y");
 		fEndPos[2] = hEvent.GetFloat("z");
-
+		
 		fPercentage = 0.4/(GetVectorDistance(fClientOrigin, fEndPos)/100.0);
 
-		fStartPos[0] = fClientOrigin[0] + ((fEndPos[0]-fClientOrigin[0]) * fPercentage);
-		fStartPos[1] = fClientOrigin[1] + ((fEndPos[1]-fClientOrigin[1]) * fPercentage)-0.08;
+		fStartPos[0] = fClientOrigin[0] + ((fEndPos[0]-fClientOrigin[0]) * fPercentage); 
+		fStartPos[1] = fClientOrigin[1] + ((fEndPos[1]-fClientOrigin[1]) * fPercentage)-0.08; 
 		fStartPos[2] = fClientOrigin[2] + ((fEndPos[2]-fClientOrigin[2]) * fPercentage);
 
 		iTeam = GetClientTeam(iClient);
@@ -522,11 +522,11 @@ public void Event_BulletImpact(Event hEvent, const char[] sEvName, bool dontBroa
 
 		i = 1;
 		iTotalClients = 0;
-
-		if(g_bHide)
+		
+		if(g_bHide) 
 		{
 			while(i <= MaxClients)
-			{
+			{ 
 				if(g_bVisible[i] && IsClientInGame(i) && IsFakeClient(i) == false && GetClientTeam(i) == iTeam)
 				{
 					iClients[iTotalClients++] = i;
@@ -535,7 +535,7 @@ public void Event_BulletImpact(Event hEvent, const char[] sEvName, bool dontBroa
 			}
 		}
 		else while(i <= MaxClients)
-		{
+		{ 
 			if(g_bVisible[i] && IsClientInGame(i) && IsFakeClient(i) == false)
 			{
 				iClients[iTotalClients++] = i;
