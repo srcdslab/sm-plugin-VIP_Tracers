@@ -12,7 +12,7 @@ public Plugin myinfo =
 	name = "[VIP] Tracers",
 	author = "R1KO & inGame & maxime1907",
 	description = "Display the trajectory of bullets when firing with a weapon",
-	version = "1.2.0",
+	version = "1.2.1",
 	url = ""
 };
 
@@ -120,6 +120,7 @@ void ShowSettingsMenu(int client)
 
 	menu.SetTitle("%T", "Cookie Menu Title", client);
 
+	SetGlobalTransTarget(client);
 	AddMenuItemTranslated(menu, "0", "%t: %t", "Tracers",    g_bVisible[client]  ? "Visible" : "Hidden");
 
 	menu.ExitBackButton = true;

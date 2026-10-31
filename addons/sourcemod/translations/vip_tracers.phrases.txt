@@ -4,30 +4,60 @@
 	{
 		"en"	"{blue}[VIP Tracers] {yellow}Tracers only for {orchid}VIP{yellow}"
 		"ru"	"{blue}[VIP Tracers] {yellow}Следы от пуль только для {orchid}VIP{yellow}"
+		"fr"	"{blue}[VIP Tracers] {yellow}Traceurs réservés aux {orchid}VIP{yellow}"
+		"es"	"{blue}[VIP Tracers] {yellow}Trazadoras solo para {orchid}VIP{yellow}"
+		"de"	"{blue}[VIP Tracers] {yellow}Tracer nur für {orchid}VIP{yellow}"
+		"pt"	"{blue}[VIP Tracers] {yellow}Traçantes apenas para {orchid}VIP{yellow}"
+		"chi"	"{blue}[VIP Tracers] {yellow}弹道轨迹仅限{orchid}VIP{yellow}"
 	}
 	"Cookie Menu"
 	{
 		"en"    "VIP Tracers"
 		"ru"    "Следы от пуль (VIP)"
+		"fr"    "Traceurs VIP"
+		"es"    "Trazadoras VIP"
+		"de"    "VIP-Tracer"
+		"pt"    "Traçantes VIP"
+		"chi"   "VIP 弹道轨迹"
 	}
 	"Cookie Menu Title"
 	{
 		"en"    "VIP Tracers Settings"
 		"ru"    "Настройки VIP следов от пуль"
+		"fr"    "Réglages des traceurs VIP"
+		"es"    "Ajustes de trazadoras VIP"
+		"de"    "VIP-Tracer-Einstellungen"
+		"pt"    "Configurações de traçantes VIP"
+		"chi"   "VIP 弹道轨迹设置"
 	}
 	"Visible"
 	{
 		"en"    "Visible"
 		"ru"    "Видимые"
+		"fr"    "Visibles"
+		"es"    "Visibles"
+		"de"    "Sichtbar"
+		"pt"    "Visíveis"
+		"chi"   "可见"
 	}
 	"Hidden"
 	{
 		"en"    "Hidden"
 		"ru"    "Скрытые"
+		"fr"    "Cachés"
+		"es"    "Ocultas"
+		"de"    "Versteckt"
+		"pt"    "Ocultas"
+		"chi"   "隐藏"
 	}
 	"Tracers"
 	{
 		"en"    "Tracers"
 		"ru"    "Следы от пуль"
+		"fr"    "Traceurs"
+		"es"    "Trazadoras"
+		"de"    "Tracer"
+		"pt"    "Traçantes"
+		"chi"   "弹道轨迹"
 	}
 }
