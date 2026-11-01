@@ -60,4 +60,141 @@
 		"pt"    "Traçantes"
 		"chi"   "弹道轨迹"
 	}
+
+	"VIPT_Tracers_Enabled"
+	{
+		"#format"	"{1:s}"
+		"en"		"VIP Tracers {1}enabled"
+		"fr"		"Traceurs VIP {1}activés"
+		"ru"		"VIP следы от пуль {1}включены"
+		"es"		"Trazadoras VIP {1}activadas"
+		"de"		"VIP-Tracer {1}aktiviert"
+		"pt"		"Traçantes VIP {1}ativadas"
+		"chi"		"VIP 弹道轨迹{1}已开启"
+	}
+
+	"VIPT_Tracers_Disabled"
+	{
+		"#format"	"{1:s}"
+		"en"		"VIP Tracers {1}disabled"
+		"fr"		"Traceurs VIP {1}désactivés"
+		"ru"		"VIP следы от пуль {1}выключены"
+		"es"		"Trazadoras VIP {1}desactivadas"
+		"de"		"VIP-Tracer {1}deaktiviert"
+		"pt"		"Traçantes VIP {1}desativadas"
+		"chi"		"VIP 弹道轨迹{1}已关闭"
+	}
+
+	"VIPT_Color_Changed"
+	{
+		"#format"	"{1:s},{2:s}"
+		"en"		"You changed your tracers color to {1}{2}"
+		"fr"		"Vous avez changé la couleur de vos traceurs en {1}{2}"
+		"ru"		"Вы изменили цвет следов от пуль на {1}{2}"
+		"es"		"Has cambiado el color de tus trazadoras a {1}{2}"
+		"de"		"Du hast deine Tracer-Farbe geändert zu {1}{2}"
+		"pt"		"Você mudou a cor das suas traçantes para {1}{2}"
+		"chi"		"你已将弹道轨迹颜色更改为 {1}{2}"
+	}
+
+	"VIPT_Menu_Title"
+	{
+		"en"		"VIP Tracers settings:\n \n"
+		"fr"		"Réglages des traceurs VIP :\n \n"
+		"ru"		"Настройки VIP следов от пуль:\n \n"
+		"es"		"Ajustes de trazadoras VIP:\n \n"
+		"de"		"VIP-Tracer-Einstellungen:\n \n"
+		"pt"		"Configurações de traçantes VIP:\n \n"
+		"chi"		"VIP 弹道轨迹设置：\n \n"
+	}
+
+	"VIPT_Colors_Title"
+	{
+		"en"		"Tracers colors:\n \n"
+		"fr"		"Couleurs des traceurs :\n \n"
+		"ru"		"Цвета следов от пуль:\n \n"
+		"es"		"Colores de trazadoras:\n \n"
+		"de"		"Tracer-Farben:\n \n"
+		"pt"		"Cores das traçantes:\n \n"
+		"chi"		"弹道轨迹颜色：\n \n"
+	}
+
+	"VIPT_Menu_Enable"
+	{
+		"en"		"Enable tracers"
+		"fr"		"Activer les traceurs"
+		"ru"		"Включить следы от пуль"
+		"es"		"Activar trazadoras"
+		"de"		"Tracer aktivieren"
+		"pt"		"Ativar traçantes"
+		"chi"		"开启弹道轨迹"
+	}
+
+	"VIPT_Menu_Disable"
+	{
+		"en"		"Disable tracers"
+		"fr"		"Désactiver les traceurs"
+		"ru"		"Выключить следы от пуль"
+		"es"		"Desactivar trazadoras"
+		"de"		"Tracer deaktivieren"
+		"pt"		"Desativar traçantes"
+		"chi"		"关闭弹道轨迹"
+	}
+
+	"VIPT_Menu_Color"
+	{
+		"#format"	"{1:s}"
+		"en"		"Color [{1}]"
+		"fr"		"Couleur [{1}]"
+		"ru"		"Цвет [{1}]"
+		"es"		"Color [{1}]"
+		"de"		"Farbe [{1}]"
+		"pt"		"Cor [{1}]"
+		"chi"		"颜色 [{1}]"
+	}
+
+	"VIPT_Menu_Amplitude"
+	{
+		"#format"	"{1:.1f}"
+		"en"		"Amplitude [{1}]"
+		"fr"		"Amplitude [{1}]"
+		"ru"		"Амплитуда [{1}]"
+		"es"		"Amplitud [{1}]"
+		"de"		"Amplitude [{1}]"
+		"pt"		"Amplitude [{1}]"
+		"chi"		"振幅 [{1}]"
+	}
+
+	"VIPT_Menu_Amplitude_Plus"
+	{
+		"en"		"Amplitude +0.1"
+		"fr"		"Amplitude +0.1"
+		"ru"		"Амплитуда +0.1"
+		"es"		"Amplitud +0.1"
+		"de"		"Amplitude +0.1"
+		"pt"		"Amplitude +0.1"
+		"chi"		"振幅 +0.1"
+	}
+
+	"VIPT_Menu_Amplitude_Minus"
+	{
+		"en"		"Amplitude -0.1"
+		"fr"		"Amplitude -0.1"
+		"ru"		"Амплитуда -0.1"
+		"es"		"Amplitud -0.1"
+		"de"		"Amplitude -0.1"
+		"pt"		"Amplitude -0.1"
+		"chi"		"振幅 -0.1"
+	}
+
+	"VIPT_No_Colors"
+	{
+		"en"		"No Colors"
+		"fr"		"Aucune couleur"
+		"ru"		"Нет цветов"
+		"es"		"Sin colores"
+		"de"		"Keine Farben"
+		"pt"		"Sem cores"
+		"chi"		"没有颜色"
+	}
 }
