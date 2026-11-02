@@ -12,7 +12,7 @@ public Plugin myinfo =
 	name = "[VIP] Tracers",
 	author = "R1KO & inGame & maxime1907",
 	description = "Display the trajectory of bullets when firing with a weapon",
-	version = "1.2.1",
+	version = "1.2.2",
 	url = ""
 };
 
@@ -50,7 +50,7 @@ public void OnPluginStart()
 
 	g_hCookie_VIPTracers_Visible  = new Cookie("Tracers_Visible",  "Tracers_Visible", CookieAccess_Private);
 	
-	g_hMainMenu = new Menu(Handler_MainMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem);
+	g_hMainMenu = new Menu(Handler_MainMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem|MenuAction_Display);
 	g_hMainMenu.ExitBackButton = false;
 	g_hMainMenu.ExitButton = true;
 	g_hMainMenu.SetTitle("VIP Tracers settings:\n \n");
@@ -61,7 +61,7 @@ public void OnPluginStart()
 	g_hMainMenu.AddItem("", "a-");
 	
 
-	g_hColorsMenu = new Menu(Handler_ColorsMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem);
+	g_hColorsMenu = new Menu(Handler_ColorsMenu, MenuAction_Select|MenuAction_Cancel|MenuAction_DisplayItem|MenuAction_Display);
 	g_hColorsMenu.ExitBackButton = true;
 	g_hColorsMenu.ExitButton = true;
 	g_hColorsMenu.SetTitle("Tracers colors:\n \n");
@@ -103,7 +103,7 @@ void TracersVisibility(int client)
 {
 	g_bVisible[client] = !g_bVisible[client];
 	g_hCookie_VIPTracers_Visible.Set(client, g_bVisible[client] ? "1" : "0");
-	PrintToChat(client, "\x0799CCFF[VIP Tracers] \x01VIP Tracers %s\x01.", g_bVisible[client] ? "\x04enabled":"\x07FF4040disabled");
+	CPrintToChat(client, "{blue}[VIP Tracers] %t", g_bVisible[client] ? "Visibility Enabled" : "Visibility Disabled");
 }
 
 void AddMenuItemTranslated(Menu menu, const char[] info, const char[] display, any ...)
@@ -158,7 +158,8 @@ public int MenuHandler_SettingsMenu(Menu menu, MenuAction action, int client, in
 		}
 		case(MenuAction_Cancel):
 		{
-			ShowCookieMenu(client);
+			if(selection == MenuCancel_ExitBack)
+				ShowCookieMenu(client);
 		}
 		case(MenuAction_End):
 		{
@@ -258,6 +259,12 @@ public int Handler_MainMenu(Menu hMenu, MenuAction action, int iClient, int Item
 			}
 			g_hMainMenu.Display(iClient, MENU_TIME_FOREVER);
 		}
+		case MenuAction_Display:
+		{
+			char sTitle[128];
+			FormatEx(sTitle, sizeof(sTitle), "%T\n \n", "Cookie Menu Title", iClient);
+			view_as<Panel>(Item).SetTitle(sTitle);
+		}
 		case MenuAction_DisplayItem:
 		{
 			char sBuffer[128];
@@ -265,25 +272,27 @@ public int Handler_MainMenu(Menu hMenu, MenuAction action, int iClient, int Item
 			{
 				case 0:
 				{
-					strcopy(sBuffer, sizeof(sBuffer), g_bEnabled[iClient] ? "Disable tracers":"Enable tracers");
+					FormatEx(sBuffer, sizeof(sBuffer), "%T", g_bEnabled[iClient] ? "Disable Tracers" : "Enable Tracers", iClient);
 				}
 				case 1:
 				{
 					char sInfo[64], sColorName[64];
 					g_hColorsMenu.GetItem(g_iClientItem[iClient], sInfo, sizeof(sInfo), _, sColorName, sizeof(sColorName));
-					FormatEx(sBuffer, sizeof(sBuffer), "Color [%s]", sColorName);
+					if(!sInfo[0])
+						FormatEx(sColorName, sizeof(sColorName), "%T", "No Colors", iClient);
+					FormatEx(sBuffer, sizeof(sBuffer), "%T", "Color Item", iClient, sColorName);
 				}
 				case 2:
 				{
-					FormatEx(sBuffer, sizeof(sBuffer), "Amplitude [%.1f]", g_fClientAmplitude[iClient]);
+					FormatEx(sBuffer, sizeof(sBuffer), "%T", "Amplitude Item", iClient, g_fClientAmplitude[iClient]);
 				}
 				case 3:
 				{
-					FormatEx(sBuffer, sizeof(sBuffer), "Amplitude +0.1");
+					FormatEx(sBuffer, sizeof(sBuffer), "%T", "Amplitude Up", iClient);
 				}
 				case 4:
 				{
-					FormatEx(sBuffer, sizeof(sBuffer), "Amplitude -0.1");
+					FormatEx(sBuffer, sizeof(sBuffer), "%T", "Amplitude Down", iClient);
 				}
 			}
 			
@@ -298,6 +307,12 @@ public int Handler_ColorsMenu(Menu hMenu, MenuAction action, int iClient, int It
 {
 	switch(action)
 	{
+		case MenuAction_Display:
+		{
+			char sTitle[128];
+			FormatEx(sTitle, sizeof(sTitle), "%T\n \n", "Colors Menu Title", iClient);
+			view_as<Panel>(Item).SetTitle(sTitle);
+		}
 		case MenuAction_Cancel:
 		{
 			if(Item == MenuCancel_ExitBack)
@@ -314,21 +329,29 @@ public int Handler_ColorsMenu(Menu hMenu, MenuAction action, int iClient, int It
 			g_hCookie[1].Set(iClient, sInfo);
 			g_iClientItem[iClient] = Item;
 
-			PrintToChat(iClient, "\x0799CCFF[VIP Tracers] \x07FFFF00You changed your tracers color to \x04%s", sColorName);
+			CPrintToChat(iClient, "{blue}[VIP Tracers] %t", "Color Changed", sColorName);
 			
 			g_hColorsMenu.DisplayAt(iClient, hMenu.Selection, MENU_TIME_FOREVER);
 		}
 		case MenuAction_DisplayItem:
 		{
+			char sInfo[64], sColorName[128];
+			hMenu.GetItem(Item, sInfo, sizeof(sInfo), _, sColorName, sizeof(sColorName));
+
+			// The "No Colors" fallback item is the only one without info
+			bool bNoColors = !sInfo[0];
+			if(bNoColors)
+				FormatEx(sColorName, sizeof(sColorName), "%T", "No Colors", iClient);
+
 			if(g_iClientItem[iClient] == Item)
 			{
-				char sInfo[64], sColorName[128];
-				hMenu.GetItem(Item, sInfo, sizeof(sInfo), _, sColorName, sizeof(sColorName));
-				
 				Format(sColorName, sizeof(sColorName), "%s [X]", sColorName);
 
 				return RedrawMenuItem(sColorName);
 			}
+
+			if(bNoColors)
+				return RedrawMenuItem(sColorName);
 		}
 	}
 

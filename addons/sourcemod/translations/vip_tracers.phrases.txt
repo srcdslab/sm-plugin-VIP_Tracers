@@ -60,4 +60,117 @@
 		"pt"    "Traçantes"
 		"chi"   "弹道轨迹"
 	}
+	"Visibility Enabled"
+	{
+		"en"    "{default}VIP Tracers {green}enabled{default}."
+		"ru"    "{default}Следы от пуль VIP {green}включены{default}."
+		"fr"    "{default}Traceurs VIP {green}activés{default}."
+		"es"    "{default}Trazadoras VIP {green}activadas{default}."
+		"de"    "{default}VIP-Tracer {green}aktiviert{default}."
+		"pt"    "{default}Traçantes VIP {green}ativadas{default}."
+		"chi"   "{default}VIP 弹道轨迹已{green}启用{default}。"
+	}
+	"Visibility Disabled"
+	{
+		"en"    "{default}VIP Tracers {red}disabled{default}."
+		"ru"    "{default}Следы от пуль VIP {red}выключены{default}."
+		"fr"    "{default}Traceurs VIP {red}désactivés{default}."
+		"es"    "{default}Trazadoras VIP {red}desactivadas{default}."
+		"de"    "{default}VIP-Tracer {red}deaktiviert{default}."
+		"pt"    "{default}Traçantes VIP {red}desativadas{default}."
+		"chi"   "{default}VIP 弹道轨迹已{red}禁用{default}。"
+	}
+	"Color Changed"
+	{
+		"#format" "{1:s}"
+		"en"    "{yellow}You changed your tracers color to {green}{1}"
+		"ru"    "{yellow}Вы изменили цвет следов от пуль на {green}{1}"
+		"fr"    "{yellow}La couleur de vos traceurs est maintenant {green}{1}"
+		"es"    "{yellow}Has cambiado el color de tus trazadoras a {green}{1}"
+		"de"    "{yellow}Deine Tracer-Farbe ist jetzt {green}{1}"
+		"pt"    "{yellow}Você mudou a cor das suas traçantes para {green}{1}"
+		"chi"   "{yellow}你的弹道轨迹颜色已更改为{green}{1}"
+	}
+	"Colors Menu Title"
+	{
+		"en"    "Tracers colors:"
+		"ru"    "Цвета следов от пуль:"
+		"fr"    "Couleurs des traceurs :"
+		"es"    "Colores de las trazadoras:"
+		"de"    "Tracer-Farben:"
+		"pt"    "Cores das traçantes:"
+		"chi"   "弹道轨迹颜色："
+	}
+	"Enable Tracers"
+	{
+		"en"    "Enable tracers"
+		"ru"    "Включить следы от пуль"
+		"fr"    "Activer les traceurs"
+		"es"    "Activar trazadoras"
+		"de"    "Tracer aktivieren"
+		"pt"    "Ativar traçantes"
+		"chi"   "启用弹道轨迹"
+	}
+	"Disable Tracers"
+	{
+		"en"    "Disable tracers"
+		"ru"    "Выключить следы от пуль"
+		"fr"    "Désactiver les traceurs"
+		"es"    "Desactivar trazadoras"
+		"de"    "Tracer deaktivieren"
+		"pt"    "Desativar traçantes"
+		"chi"   "禁用弹道轨迹"
+	}
+	"Color Item"
+	{
+		"#format" "{1:s}"
+		"en"    "Color [{1}]"
+		"ru"    "Цвет [{1}]"
+		"fr"    "Couleur [{1}]"
+		"es"    "Color [{1}]"
+		"de"    "Farbe [{1}]"
+		"pt"    "Cor [{1}]"
+		"chi"   "颜色 [{1}]"
+	}
+	"Amplitude Item"
+	{
+		"#format" "{1:.1f}"
+		"en"    "Amplitude [{1}]"
+		"ru"    "Амплитуда [{1}]"
+		"fr"    "Amplitude [{1}]"
+		"es"    "Amplitud [{1}]"
+		"de"    "Amplitude [{1}]"
+		"pt"    "Amplitude [{1}]"
+		"chi"   "振幅 [{1}]"
+	}
+	"Amplitude Up"
+	{
+		"en"    "Amplitude +0.1"
+		"ru"    "Амплитуда +0.1"
+		"fr"    "Amplitude +0.1"
+		"es"    "Amplitud +0.1"
+		"de"    "Amplitude +0.1"
+		"pt"    "Amplitude +0.1"
+		"chi"   "振幅 +0.1"
+	}
+	"Amplitude Down"
+	{
+		"en"    "Amplitude -0.1"
+		"ru"    "Амплитуда -0.1"
+		"fr"    "Amplitude -0.1"
+		"es"    "Amplitud -0.1"
+		"de"    "Amplitude -0.1"
+		"pt"    "Amplitude -0.1"
+		"chi"   "振幅 -0.1"
+	}
+	"No Colors"
+	{
+		"en"    "No Colors"
+		"ru"    "Нет цветов"
+		"fr"    "Aucune couleur"
+		"es"    "Sin colores"
+		"de"    "Keine Farben"
+		"pt"    "Sem cores"
+		"chi"   "没有颜色"
+	}
 }
